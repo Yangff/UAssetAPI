@@ -180,9 +180,16 @@
 	};
 
 	public enum ECastToken {
-		ObjectToInterface = 0x46,
-		ObjectToBool = 0x47,
-		InterfaceToBool = 0x49,
+		//ObjectToInterface = 0x46,
+		//ObjectToBool = 0x47,
+		//InterfaceToBool = 0x49,
+
+        ObjectToInterface = 0x00,
+        ObjectToBool = 0x01,
+        InterfaceToBool = 0x02,
+        DoubleToFloat = 0x03,
+        FloatToDouble = 0x04,
+        
 		Max = 0xFF,
 	};
 }

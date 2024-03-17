@@ -15,6 +15,8 @@ namespace UAssetAPI.Kismet.Bytecode.Expressions
         [JsonProperty]
         public ECastToken ConversionType;
 
+        public FPackageIndex InterfaceClass;
+
         /// <summary>
         /// The target of this expression.
         /// </summary>
@@ -38,6 +40,10 @@ namespace UAssetAPI.Kismet.Bytecode.Expressions
         public override void Read(AssetBinaryReader reader)
         {
             ConversionType = (ECastToken)reader.ReadByte();
+            if (ConversionType == ECastToken.ObjectToInterface)
+            {
+                InterfaceClass = reader.XFER_FUNC_POINTER();
+            }
             Target = ExpressionSerializer.ReadExpression(reader);
         }
 
